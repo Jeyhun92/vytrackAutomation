@@ -1,4 +1,4 @@
-package com.cydeo.tests.utilities;
+package com.cydeo.utilities;
 
 // TASK: NEW METHOD CREATION
 // Method name : getDriver
