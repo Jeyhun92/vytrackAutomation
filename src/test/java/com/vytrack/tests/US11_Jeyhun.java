@@ -15,6 +15,7 @@ public class US11_Jeyhun extends TestBase {
 
 
     public void verify_manager_see_expected_text()  {
+
         VytrackUtils.loginAsStoreManger();
 
      WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
@@ -70,6 +71,7 @@ public class US11_Jeyhun extends TestBase {
         System.out.println("drop = " + drop.getText());
 
         Assert.assertEquals(drop.getText(), "25");
+
 
     }
 
