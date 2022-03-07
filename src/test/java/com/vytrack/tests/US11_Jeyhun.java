@@ -13,13 +13,12 @@ public class US11_Jeyhun extends TestBase {
 
 
     @Test
-    public void verify_manager_see_expected_text() throws InterruptedException {
+    public void verify_manager_see_expected_text()  {
         VytrackUtils.loginAsStoreManger();
 
      WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
      fleetBtn.click();
 
-     Thread.sleep(2000);
 
         WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
         odometerBtn.click();
@@ -31,6 +30,44 @@ public class US11_Jeyhun extends TestBase {
         Assert.assertEquals(actual_Result,expected_Result);
 
     }
+    @Test
+    public void verify_defaultPageNumber_is1()  {
+
+        VytrackUtils.loginAsDriver();
+
+        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
+        fleetBtn.click();
+
+        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
+        odometerBtn.click();
+
+        WebElement pageNumber = Driver.getDriver().findElement(By.xpath("//input[@type='number']"));
+        System.out.println("pageNumber.attribute() = " + pageNumber.getAttribute("value"));
+
+       Assert.assertEquals(pageNumber.getAttribute("value"), "1");
+    }
+
+    @Test
+    public void verify_default_view_perPage_is25() {
+
+        VytrackUtils.loginAsDriver();
+
+        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
+        fleetBtn.click();
+
+
+        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
+        odometerBtn.click();
+
+        WebElement drop = Driver.getDriver().findElement(By.xpath("//button[@class='btn dropdown-toggle ']"));
+
+        System.out.println("drop = " + drop.getText());
+
+        Assert.assertEquals(drop.getText(), "25");
+
+    }
+
+
 
 }
 
@@ -47,4 +84,20 @@ Steps:
 Log in as store or sales managers
 Click the “Vehicle Odometers” under the Fleet
 Verify the managers see “You do not have permission to perform this action.”
+
+Test cases #2
+Description:  Drivers should see the default page number as 1
+Environment: https://qa2.vytrack.com/user/login
+Steps:
+Log in as drivers
+Click the “Vehicle Odometers” under the Fleet
+Verify the default page number is 1
+
+Test cases #3
+Description:   Divers should see the View Per Page is 25 by default.
+Environment: https://qa2.vytrack.com/user/login
+Steps:
+Log in as drivers
+Click the “Vehicle Odometers” under the Fleet
+Verify the default view per page is 25.
  */
