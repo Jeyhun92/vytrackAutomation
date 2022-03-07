@@ -99,5 +99,5 @@ Environment: https://qa2.vytrack.com/user/login
 Steps:
 Log in as drivers
 Click the “Vehicle Odometers” under the Fleet
-Verify the default view per page is 25
+Verify the default view per page is 25.
  */
