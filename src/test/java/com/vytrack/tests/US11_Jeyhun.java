@@ -7,7 +7,6 @@ import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class US11_Jeyhun extends TestBase {
@@ -20,8 +19,9 @@ public class US11_Jeyhun extends TestBase {
 
         VytrackUtils.loginAsStoreManger();
 
+        Sleep.Zzz(3);
      WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-     fleetBtn.click();
+      fleetBtn.click();
 
         Sleep.Zzz(3);
 
@@ -32,7 +32,7 @@ public class US11_Jeyhun extends TestBase {
         WebElement message=Driver.getDriver().findElement(By.xpath("(//div[@class='message'])[2]"));
         String expected_Result= "You do not have permission to perform this action.";
 
-        String actual_Result= message.getText();
+        String actual_Result = message.getText();
 
         Assert.assertEquals(actual_Result,expected_Result);
 
@@ -51,13 +51,6 @@ public class US11_Jeyhun extends TestBase {
         odometerBtn.click();
 
         Sleep.Zzz(3);
-
-
-        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        fleetBtn.click();
-
-        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
-        odometerBtn.click();
 
 
         WebElement pageNumber = Driver.getDriver().findElement(By.xpath("//input[@type='number']"));
@@ -80,16 +73,6 @@ public class US11_Jeyhun extends TestBase {
         odometerBtn.click();
 
         Sleep.Zzz(3);
-
-
-        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        fleetBtn.click();
-
-
-        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
-        odometerBtn.click();
-
-
         WebElement drop = Driver.getDriver().findElement(By.xpath("//button[@class='btn dropdown-toggle ']"));
 
         System.out.println("drop = " + drop.getText());
