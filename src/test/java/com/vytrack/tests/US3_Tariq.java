@@ -1,4 +1,6 @@
 package com.vytrack.tests;
 
-public class US3_Tariq {
+import com.vytrack.tests.base.TestBase;
+
+public class US3_Tariq extends TestBase {
 }
