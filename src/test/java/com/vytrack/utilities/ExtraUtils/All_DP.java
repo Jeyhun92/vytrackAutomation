@@ -12,22 +12,27 @@ public class All_DP {
         };
 
     }
+
     @DataProvider(name = "SalesManagerLogin")
     Object[][] SalesManager() {
 
         return new Object[][]{
-                {"storemanager75"},
-                {"storemanager78"}
+                {"salesmanager133"},
+                {"salesmanager136"}
+
         };
 
     }
+
     @DataProvider(name = "StoreManagerLogin")
     Object[][] StoreManager() {
         return new Object[][]{
-                {"salesmanager133"}, {"salesmanager136"}
+                {"storemanager75"},
+                {"storemanager78"}
 
         };
     }
+
     @DataProvider(name = "LoginAll")
     Object[][] loginCredentials() {
 
