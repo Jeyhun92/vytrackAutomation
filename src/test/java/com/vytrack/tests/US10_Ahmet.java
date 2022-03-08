@@ -1,6 +1,7 @@
 package com.vytrack.tests;
 
 import com.vytrack.tests.base.TestBase;
+import com.vytrack.utilities.ExtraUtils.All_DP;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -15,17 +16,9 @@ import static com.vytrack.utilities.ExtraUtils.Sleep.Zzz;
 
 public class US10_Ahmet extends TestBase {
 
-    @DataProvider(name = "DriverLogin")
-    Object[][] TruckDriver() {
 
-        return new Object[][]{
-                {"user44"},
-                {"user49"}
-        };
 
-    }
-
-    @Test(dataProvider = "DriverLogin")
+    @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_MsgByDriver(String truckDriverUserName) {
 
         loginBy(truckDriverUserName);
@@ -55,17 +48,9 @@ public class US10_Ahmet extends TestBase {
 
     }
 
-    @DataProvider(name = "SalesManagerLogin")
-    Object[][] SalesManager() {
 
-        return new Object[][]{
-                {"storemanager75"},
-                {"storemanager78"}
-        };
 
-    }
-
-    @Test(dataProvider = "SalesManagerLogin")
+    @Test(dataProvider = "SalesManagerLogin", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_MsgBySalesManager(String salesManagerUserName) {
 
         loginBy(salesManagerUserName);
@@ -93,15 +78,9 @@ public class US10_Ahmet extends TestBase {
 
     }
 
-    @DataProvider(name = "StoreManagerLogin")
-    Object[][] StoreManager() {
-        return new Object[][]{
-                {"salesmanager133"}, {"salesmanager136"}
 
-        };
-    }
 
-    @Test(dataProvider = "StoreManagerLogin")
+    @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_MsgByStoreManager(String storeManagerLogin) {
 
         loginBy(storeManagerLogin);
@@ -130,22 +109,10 @@ public class US10_Ahmet extends TestBase {
 
     }
 
-    @DataProvider(name = "LoginAll")
-    Object[][] loginCredentials() {
 
-        return new Object[][]{
-                {"user44"},
-                {"user49"},
-                {"salesmanager133"},
-                {"salesmanager136"},
-                {"storemanager75"},
-                {"storemanager78"}
-        };
-
-    }
 
     @Ignore
-    @Test(dataProvider = "LoginAll")
+    @Test(dataProvider = "LoginAll", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_Msg(String user) {
 
         loginBy(user);
