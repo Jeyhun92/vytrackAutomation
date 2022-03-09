@@ -1,7 +1,9 @@
 package com.vytrack.tests;
 
 import com.vytrack.tests.base.TestBase;
+import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.ExtraUtils.All_DP;
 import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,13 +14,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.vytrack.utilities.ExtraUtils.LoginBy.loginBy;
 
-    public class US1_Gunay extends TestBase {
 
-        @Test
-        public void verifying_modules_as_store_manger(){
+public class US1_Gunay extends TestBase {
 
-            VytrackUtils.loginAsStoreManger();
+
+
+        @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
+        public void verifying_modules_as_store_manger(String storeManagerLogin){
+
+            loginBy(storeManagerLogin);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards",
                     "Fleet",
@@ -40,10 +46,10 @@ import java.util.List;
 
         }
 
-        @Test
-        public void verifying_modules_as_store_manger_negative_scenario(){
+    @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
+        public void verifying_modules_as_store_manger_negative_scenario(String storeManagerLogin){
 
-            VytrackUtils.loginAsStoreManger();
+        loginBy(storeManagerLogin);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards ",
                     "Fleet",
@@ -65,10 +71,10 @@ import java.util.List;
 
         }
 
-        @Test
-        public void verifying_modules_as_sales_manger() {
+        @Test(dataProvider = "SalesManagerLogin",dataProviderClass = All_DP.class)
+        public void verifying_modules_as_sales_manger(String salesManagerLogin) {
 
-            VytrackUtils.loginAsSalesManager();
+        loginBy(salesManagerLogin);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards",
                     "Fleet",
@@ -90,10 +96,10 @@ import java.util.List;
 
         }
 
-        @Test
-        public void verifying_modules_as_sales_manger_negative_scenario() {
+    @Test(dataProvider = "SalesManagerLogin",dataProviderClass = All_DP.class)
+        public void verifying_modules_as_sales_manger_negative_scenario(String salesManagerLogin) {
 
-            VytrackUtils.loginAsSalesManager();
+        loginBy(salesManagerLogin);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards",
                     "Fleet",
@@ -114,10 +120,10 @@ import java.util.List;
 
         }
 
-        @Test
-        public void verifying_modules_as_drive(){
+    @Test(dataProvider = "DriverLogin",dataProviderClass = All_DP.class)
+        public void verifying_modules_as_drive(String driverLogin){
 
-            VytrackUtils.loginAsDriver();
+      loginBy(driverLogin);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Fleet",
                     "Customers",
@@ -136,10 +142,10 @@ import java.util.List;
 
         }
 
-        @Test
-        public void verifying_modules_as_drive_negative_scenario(){
+    @Test(dataProvider = "DriverLogin",dataProviderClass = All_DP.class)
+        public void verifying_modules_as_drive_negative_scenario(String  truckDriverUserName){
 
-            VytrackUtils.loginAsDriver();
+        loginBy( truckDriverUserName);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Fleet",
                     "Custjjkdgsg",
