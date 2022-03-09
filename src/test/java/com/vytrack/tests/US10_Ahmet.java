@@ -48,8 +48,6 @@ public class US10_Ahmet extends TestBase {
 
     }
 
-
-
     @Test(dataProvider = "SalesManagerLogin", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_MsgBySalesManager(String salesManagerUserName) {
 
@@ -77,8 +75,6 @@ public class US10_Ahmet extends TestBase {
 
 
     }
-
-
 
     @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_MsgByStoreManager(String storeManagerLogin) {
@@ -108,8 +104,6 @@ public class US10_Ahmet extends TestBase {
 
 
     }
-
-
 
     @Ignore
     @Test(dataProvider = "LoginAll", dataProviderClass = All_DP.class)
