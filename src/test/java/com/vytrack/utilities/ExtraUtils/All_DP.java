@@ -46,4 +46,17 @@ public class All_DP {
         };
 
     }
+
+    @DataProvider(name = "SM")
+    Object[][] SManagers() {
+
+        return new Object[][]{
+
+                {"salesmanager133"},
+                {"salesmanager136"},
+                {"storemanager75"},
+                {"storemanager78"}
+        };
+
+    }
 }
