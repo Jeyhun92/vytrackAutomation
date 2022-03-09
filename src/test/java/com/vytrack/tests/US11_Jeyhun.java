@@ -2,29 +2,27 @@ package com.vytrack.tests;
 
 import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.ExtraUtils.All_DP;
 import com.vytrack.utilities.ExtraUtils.Sleep;
-import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static com.vytrack.utilities.ExtraUtils.LoginBy.loginBy;
 
 public class US11_Jeyhun extends TestBase {
 
 
+    @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
+    public void verify_manager_see_expected_text(String storeManagerLogin)  {
 
-
-    @Test
-    public void verify_manager_see_expected_text()  {
-
-        VytrackUtils.loginAsStoreManger();
+        loginBy(storeManagerLogin);
 
         Sleep.Zzz(3);
      WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
       fleetBtn.click();
 
         Sleep.Zzz(3);
-
         WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
         odometerBtn.click();
 
@@ -33,14 +31,12 @@ public class US11_Jeyhun extends TestBase {
         String expected_Result= "You do not have permission to perform this action.";
 
         String actual_Result = message.getText();
-
         Assert.assertEquals(actual_Result,expected_Result);
 
     }
-    @Test
-    public void verify_defaultPageNumber_is1()  {
-
-        VytrackUtils.loginAsDriver();
+    @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
+    public void verify_defaultPageNumber_is1(String truckDriverUserName)  {
+      loginBy(truckDriverUserName);
 
         Sleep.Zzz(3);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
@@ -59,10 +55,10 @@ public class US11_Jeyhun extends TestBase {
        Assert.assertEquals(pageNumber.getAttribute("value"), "1");
     }
 
-    @Test
-    public void verify_default_view_perPage_is25() {
+    @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
+    public void verify_default_view_perPage_is25(String truckDriverUserName) {
 
-        VytrackUtils.loginAsDriver();
+        loginBy(truckDriverUserName);
 
         Sleep.Zzz(3);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
@@ -73,11 +69,11 @@ public class US11_Jeyhun extends TestBase {
         odometerBtn.click();
 
         Sleep.Zzz(3);
-        WebElement drop = Driver.getDriver().findElement(By.xpath("//button[@class='btn dropdown-toggle ']"));
+        WebElement defaultPageNum = Driver.getDriver().findElement(By.xpath("//button[@class='btn dropdown-toggle ']"));
 
-        System.out.println("drop = " + drop.getText());
+        System.out.println("defaultPageNum = " + defaultPageNum.getText());
 
-        Assert.assertEquals(drop.getText(), "25");
+        Assert.assertEquals(defaultPageNum.getText(), "25");
 
 
     }
