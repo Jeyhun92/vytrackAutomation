@@ -18,7 +18,7 @@ import java.util.List;
 
 import static com.vytrack.utilities.ExtraUtils.LoginBy.loginBy;
 
-public class US14_Mumin extends TestBase {
+public class US14_Mumin_substituted extends TestBase {
 
 
     @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
