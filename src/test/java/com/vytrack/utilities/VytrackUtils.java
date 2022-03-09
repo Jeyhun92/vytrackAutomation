@@ -52,6 +52,4 @@ public class VytrackUtils {
         //click login button
         Driver.getDriver().findElement(By.tagName("button")).click();
     }
-
-
 }
