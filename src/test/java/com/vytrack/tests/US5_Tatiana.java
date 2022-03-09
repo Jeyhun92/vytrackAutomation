@@ -2,6 +2,7 @@ package com.vytrack.tests;
 
 import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.ExtraUtils.Sleep;
 import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,21 +17,24 @@ import java.util.List;
 public class US5_Tatiana extends TestBase {
 
     @Test
-    public void test_vehicle_model_as_sales_manager(){
+    public void test_vehicle_model_as_sales_manager() {
         VytrackUtils.loginAsSalesManager();
+
+        Sleep.Zzz(2);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
         fleetBtn.click();
 
         WebElement vehiclesModelBtn = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
         vehiclesModelBtn.click();
-
-        List<WebElement> vehiclesModelTable = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']//tr/th"));
+        Sleep.Zzz(2);
+        List<WebElement> vehiclesModelTable = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']/tr/th/a"));
 
         List<String> actualVehiclesModelText = new ArrayList<>();
+        /*vehiclesModelTable.forEach(p -> actualVehiclesModelText.add(p.getText()));*/
 
-        for (int i = 1; i < vehiclesModelTable.size()-1; i++) {
-            String vehiclesModelText = vehiclesModelTable.get(i).getText();
-            actualVehiclesModelText.add(vehiclesModelText);
+        for (WebElement each : vehiclesModelTable) {
+            actualVehiclesModelText.add(each.getText());
+
         }
         System.out.println("actualVehiclesModelText = " + actualVehiclesModelText);
 
@@ -51,22 +55,25 @@ public class US5_Tatiana extends TestBase {
     }
 
     @Test
-    public void test_vehicle_model_as_store_manager(){
+    public void test_vehicle_model_as_store_manager() {
         VytrackUtils.loginAsStoreManger();
-
+        Sleep.Zzz(2);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
         fleetBtn.click();
 
         WebElement vehiclesModelBtn = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
         vehiclesModelBtn.click();
 
-        List<WebElement> vehiclesModelTable = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']//tr/th"));
+        Sleep.Zzz(2);
+        List<WebElement> vehiclesModelTable = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']/tr/th/a"));
 
         List<String> actualVehiclesModelText = new ArrayList<>();
+        /*vehiclesModelTable.forEach(p -> actualVehiclesModelText.add(p.getText()));*/
+        // Tatiana you can use the lambda method. it makes everything much easy. it is exactly the same with line 74-74
 
-        for (int i = 1; i < vehiclesModelTable.size()-1; i++) {
-            String vehicleModelText = vehiclesModelTable.get(i).getText();
-            actualVehiclesModelText.add(vehicleModelText);
+        for (WebElement each : vehiclesModelTable) {
+            actualVehiclesModelText.add(each.getText());
+
         }
         System.out.println("actualVehiclesModelText = " + actualVehiclesModelText);
 
@@ -87,12 +94,12 @@ public class US5_Tatiana extends TestBase {
     }
 
     @Test
-    public void test_vehicle_model_as_driver(){
+    public void test_vehicle_model_as_driver() {
         VytrackUtils.loginAsDriver();
-
+        Sleep.Zzz(2);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
         fleetBtn.click();
-
+        Sleep.Zzz(2);
         WebElement vehiclesModelBtn = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
         vehiclesModelBtn.click();
 
