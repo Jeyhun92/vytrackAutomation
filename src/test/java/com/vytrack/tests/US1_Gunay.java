@@ -4,6 +4,7 @@ import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.ExtraUtils.All_DP;
+import com.vytrack.utilities.ExtraUtils.Sleep;
 import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -25,6 +26,8 @@ public class US1_Gunay extends TestBase {
         public void verifying_modules_as_store_manger(String storeManagerLogin){
 
             loginBy(storeManagerLogin);
+
+            Sleep.Zzz(1);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards",
                     "Fleet",
@@ -51,6 +54,8 @@ public class US1_Gunay extends TestBase {
 
         loginBy(storeManagerLogin);
 
+        Sleep.Zzz(1);
+
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards ",
                     "Fleet",
                     "Customers",
@@ -75,6 +80,8 @@ public class US1_Gunay extends TestBase {
         public void verifying_modules_as_sales_manger(String salesManagerLogin) {
 
         loginBy(salesManagerLogin);
+
+            Sleep.Zzz(1);
 
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards",
                     "Fleet",
@@ -101,6 +108,8 @@ public class US1_Gunay extends TestBase {
 
         loginBy(salesManagerLogin);
 
+        Sleep.Zzz(1);
+
             List<String> expected_result=new ArrayList<>(Arrays.asList("Dashboards",
                     "Fleet",
                     "Customers",
@@ -125,7 +134,9 @@ public class US1_Gunay extends TestBase {
 
       loginBy(driverLogin);
 
-            List<String> expected_result=new ArrayList<>(Arrays.asList("Fleet",
+        Sleep.Zzz(1);
+
+        List<String> expected_result=new ArrayList<>(Arrays.asList("Fleet",
                     "Customers",
                     "Activities",
                     "System"));
@@ -147,7 +158,9 @@ public class US1_Gunay extends TestBase {
 
         loginBy( truckDriverUserName);
 
-            List<String> expected_result=new ArrayList<>(Arrays.asList("Fleet",
+        Sleep.Zzz(1);
+
+        List<String> expected_result=new ArrayList<>(Arrays.asList("Fleet",
                     "Custjjkdgsg",
                     "Activities",
                     "System"));
@@ -158,6 +171,7 @@ public class US1_Gunay extends TestBase {
 
             for (WebElement each : allModules) {
                 actual_result.add(each.getText());
+                
             }
 
             Assert.assertNotEquals(actual_result,expected_result);
