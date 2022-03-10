@@ -16,13 +16,9 @@ import static com.vytrack.utilities.ExtraUtils.LoginBy.loginBy;
 public class US7_Regina extends TestBase {
 
     //As a user, I should be to select any vehicle from the Vehicle page(web-table)
-
     //AC #1: once the user launched to the Vehicle page, all the checkboxes should be unchecked
-
     //AC #2: user check the first checkbox to check all the cars
-
     //AC #3: users can select any car
-
 
     @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
     public void TC1_verify_that_driver_select_any_car(String truckDriverUserName) {
