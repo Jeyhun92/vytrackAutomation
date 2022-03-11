@@ -16,6 +16,35 @@ import static com.vytrack.utilities.ExtraUtils.Sleep.Zzz;
 
 public class US10_Ahmet extends TestBase {
 
+    @Test(dataProvider = "LoginAll", dataProviderClass = All_DP.class)
+    public void TC1_Verifying_Description_Msg(String user) {
+
+        loginBy(user);
+        Zzz(3);
+        goToPage("Activities", "Calendar Events");
+        /*getDriver().findElement(By.xpath("(//div[@id='main-menu']/ul/li)[3]")).click();
+        getDriver().findElement(By.linkText("Calendar Events")).click();*/
+        Zzz(3);
+        getDriver().findElement(By.xpath("(//div[@class='container-fluid page-title']/div/div/div)[2]")).click();
+
+        Zzz(3);
+        getDriver().switchTo().frame(getDriver().findElement(By.xpath("//iframe[starts-with(@id,'oro_calendar_event_form_description')]")));
+
+        Zzz(3);
+        String expectedResult = "Scrum Daily Meeting setup at 10:30";
+
+        getDriver().findElement(By.tagName("body")).sendKeys(expectedResult);
+        String actualResult = getDriver().findElement(By.tagName("p")).getText();
+        getDriver().switchTo().parentFrame();
+
+        WebElement repeatBTN = getDriver().findElement(By.xpath("//input[starts-with(@id,'recurrence-repeat')]"));
+        repeatBTN.click();
+        System.out.println("repeatBTN.isSelected() = " + repeatBTN.isSelected());
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+
+    }
 
   /*  @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_MsgByDriver(String truckDriverUserName) {
@@ -104,34 +133,6 @@ public class US10_Ahmet extends TestBase {
 
     }*/
 
-    @Test(dataProvider = "LoginAll", dataProviderClass = All_DP.class)
-    public void TC1_Verifying_Description_Msg(String user) {
 
-        loginBy(user);
-        Zzz(3);
-        goToPage("Activities", "Calendar Events");
-        /*getDriver().findElement(By.xpath("(//div[@id='main-menu']/ul/li)[3]")).click();
-        getDriver().findElement(By.linkText("Calendar Events")).click();*/
-        Zzz(3);
-        getDriver().findElement(By.xpath("(//div[@class='container-fluid page-title']/div/div/div)[2]")).click();
-
-        Zzz(3);
-        getDriver().switchTo().frame(getDriver().findElement(By.xpath("//iframe[starts-with(@id,'oro_calendar_event_form_description')]")));
-
-        Zzz(3);
-        String expectedResult = "Scrum Daily Meeting setup at 10:30";
-
-        getDriver().findElement(By.tagName("body")).sendKeys(expectedResult);
-        String actualResult = getDriver().findElement(By.tagName("p")).getText();
-        getDriver().switchTo().parentFrame();
-
-        WebElement repeatBTN = getDriver().findElement(By.xpath("//input[starts-with(@id,'recurrence-repeat')]"));
-        repeatBTN.click();
-        System.out.println("repeatBTN.isSelected() = " + repeatBTN.isSelected());
-
-        Assert.assertEquals(actualResult, expectedResult);
-
-
-    }
 
 }
