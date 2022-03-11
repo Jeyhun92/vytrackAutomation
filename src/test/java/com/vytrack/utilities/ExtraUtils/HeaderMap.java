@@ -15,6 +15,11 @@ public class HeaderMap {
         getDriver().findElement(By.xpath("(//div[@id='main-menu']/ul/li)["+headIndex+"]")).click();
         getDriver().findElement(By.linkText(subName)).click();
     }
+    public static void goToPage(String head, String subName){
+
+        getDriver().findElement(By.linkText(head)).click();
+        getDriver().findElement(By.linkText(subName)).click();
+    }
 
     public static void goToPage(String dropDownName){
         ArrayList<String> headerLists = new ArrayList<>();
