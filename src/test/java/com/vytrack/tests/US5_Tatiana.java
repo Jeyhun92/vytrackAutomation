@@ -69,7 +69,6 @@ public class US5_Tatiana extends TestBase {
 
         List<String> actualVehiclesModelText = new ArrayList<>();
         /*vehiclesModelTable.forEach(p -> actualVehiclesModelText.add(p.getText()));*/
-        // Tatiana you can use the lambda method. it makes everything much easy. it is exactly the same with line 74-74
 
         for (WebElement each : vehiclesModelTable) {
             actualVehiclesModelText.add(each.getText());
