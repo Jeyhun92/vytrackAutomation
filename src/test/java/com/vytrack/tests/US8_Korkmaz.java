@@ -16,7 +16,6 @@ public class US8_Korkmaz extends TestBase {
     public void verify_default_repeat_day_is1 (){
 
         VytrackUtils.loginAsDriver();
-
         Sleep.Zzz(5);
 
         WebElement activityTab = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
