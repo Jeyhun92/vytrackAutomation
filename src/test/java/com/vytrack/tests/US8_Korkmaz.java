@@ -16,26 +16,22 @@ public class US8_Korkmaz extends TestBase {
     public void verify_default_repeat_day_is1 (){
 
         VytrackUtils.loginAsDriver();
-        Sleep.Zzz(5);
+        Sleep.Zzz(3);
 
         WebElement activityTab = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
         //Actions hover = new Actions(Driver.getDriver());
         //hover.moveToElement(activityTab);
         activityTab.click();
 
-        Sleep.Zzz(3);
         WebElement calendarEventsTab = Driver.getDriver().findElement(By.xpath("//span[.='Calendar Events']"));
         calendarEventsTab.click();
 
-        Sleep.Zzz(3);
         WebElement createCalenderEventTab = Driver.getDriver().findElement(By.xpath("//a[@title='Create Calendar event']"));
         createCalenderEventTab.click();
 
-        Sleep.Zzz(3);
-        WebElement checkBox = Driver.getDriver().findElement(By.xpath("//input[@id='recurrence-repeat-view248']"));
+        WebElement checkBox = Driver.getDriver().findElement(By.xpath("//input[@data-name='recurrence-repeat']"));
         checkBox.click();
 
-        Sleep.Zzz(5);
         WebElement recurringBox = Driver.getDriver().findElement(By.xpath("//input[@class='recurrence-subview-control__number']"));
         System.out.println("recurringBox.attribute() = " + recurringBox.getAttribute("value"));
 
@@ -49,22 +45,21 @@ public class US8_Korkmaz extends TestBase {
 
         VytrackUtils.loginAsDriver();
 
-        Sleep.Zzz(5);
+        Sleep.Zzz(3);
 
         WebElement activityTab = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
         activityTab.click();
 
-        Sleep.Zzz(3);
         WebElement calendarEventsTab = Driver.getDriver().findElement(By.xpath("//span[.='Calendar Events']"));
         calendarEventsTab.click();
 
-        Sleep.Zzz(3);
         WebElement createCalenderEventTab = Driver.getDriver().findElement(By.xpath("//a[@title='Create Calendar event']"));
         createCalenderEventTab.click();
 
-        Sleep.Zzz(3);
-        WebElement checkBox = Driver.getDriver().findElement(By.xpath("//input[@id='recurrence-repeat-view248']"));
+
+        WebElement checkBox = Driver.getDriver().findElement(By.xpath("//input[@data-name='recurrence-repeat']"));
         checkBox.click();
+
 
         WebElement recurringBox = Driver.getDriver().findElement(By.xpath("//input[@class='recurrence-subview-control__number']"));
         recurringBox.clear();
