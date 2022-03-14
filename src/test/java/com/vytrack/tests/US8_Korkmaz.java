@@ -16,7 +16,7 @@ public class US8_Korkmaz extends TestBase {
     public void verify_default_repeat_day_is1 (){
 
         VytrackUtils.loginAsDriver();
-        Sleep.Zzz(3);
+        Sleep.Zzz(5);
 
         WebElement activityTab = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
         //Actions hover = new Actions(Driver.getDriver());
@@ -45,7 +45,7 @@ public class US8_Korkmaz extends TestBase {
 
         VytrackUtils.loginAsDriver();
 
-        Sleep.Zzz(3);
+        Sleep.Zzz(5);
 
         WebElement activityTab = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
         activityTab.click();
