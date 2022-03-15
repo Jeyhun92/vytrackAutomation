@@ -1,24 +1,32 @@
 package com.vytrack.tests.base;
 
-import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.pages.CalendarEvent;
+
+import com.vytrack.pages.Dashboard;
+import com.vytrack.pages.EventCreate;
 import com.vytrack.utilities.Driver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.util.concurrent.TimeUnit;
 
 public abstract class TestBase {
+
+    protected CalendarEvent event;
+    protected EventCreate create;
+    protected Dashboard dashboard;
     @BeforeMethod
     public void setUp() {
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+        event = new CalendarEvent();
+        create = new EventCreate();
+        dashboard = new Dashboard();
 
-        Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        Driver.getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
     }
 
     @AfterMethod
-    public void tearDown() { Driver.closeDriver(); }
+    public void tearDown() {
+        Driver.closeDriver();
+    }
 
 }

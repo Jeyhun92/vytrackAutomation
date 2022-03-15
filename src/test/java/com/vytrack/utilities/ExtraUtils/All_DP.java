@@ -1,14 +1,24 @@
 package com.vytrack.utilities.ExtraUtils;
 
+import com.vytrack.utilities.ConfigurationReader;
 import org.testng.annotations.DataProvider;
 
 public class All_DP {
+
+    String driver1 = ConfigurationReader.getProperty("driver_username");
+    String driver2 = ConfigurationReader.getProperty("driver_username2");
+    String sales1 = ConfigurationReader.getProperty("sales_manager_username");
+    String sales2 = ConfigurationReader.getProperty("sales_manager_username2");
+    String store1 = ConfigurationReader.getProperty("store_manager_username");
+    String store2 = ConfigurationReader.getProperty("store_manager_username2");
+
+
     @DataProvider(name = "DriverLogin")
     Object[][] TruckDriver() {
 
         return new Object[][]{
-                {"user44"},
-                {"user49"}
+                {driver1},
+                {driver2}
         };
 
     }
@@ -17,8 +27,8 @@ public class All_DP {
     Object[][] SalesManager() {
 
         return new Object[][]{
-                {"salesmanager133"},
-                {"salesmanager136"}
+                {sales1},
+                {sales2}
 
         };
 
@@ -27,8 +37,8 @@ public class All_DP {
     @DataProvider(name = "StoreManagerLogin")
     Object[][] StoreManager() {
         return new Object[][]{
-                {"storemanager75"},
-                {"storemanager78"}
+                {store1},
+                {store2}
 
         };
     }
@@ -37,12 +47,12 @@ public class All_DP {
     Object[][] loginCredentials() {
 
         return new Object[][]{
-                {"user44"},
-                {"user49"},
-                {"salesmanager133"},
-                {"salesmanager136"},
-                {"storemanager75"},
-                {"storemanager78"}
+                {driver1},
+                {driver2},
+                {sales1},
+                {sales2},
+                {store1},
+                {store2}
         };
 
     }
@@ -52,10 +62,10 @@ public class All_DP {
 
         return new Object[][]{
 
-                {"salesmanager133"},
-                {"salesmanager136"},
-                {"storemanager75"},
-                {"storemanager78"}
+                {sales1},
+                {sales2},
+                {store1},
+                {store2}
         };
 
     }
