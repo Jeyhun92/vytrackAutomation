@@ -16,6 +16,12 @@ public class Dashboard {
     @FindBy(css =".nav-multilevel.main-menu")
     public WebElement mainManuBar;
 
+    @FindBy(xpath = "//div[@id='main-menu']//span[contains(text(),'Fleet')][1]")
+    public WebElement moduleFleet;
+
+    @FindBy(xpath = "//li[@class='dropdown-menu-single-item first']//span[contains(text(),'Vehicles')]")
+    public WebElement moduleFleetVehicle;
+
     @FindAll({
             @FindBy(linkText = "Fleet"),
             @FindBy(linkText = "Customers"),
