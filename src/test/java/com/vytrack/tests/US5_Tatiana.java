@@ -1,7 +1,12 @@
 package com.vytrack.tests;
 
+import com.vytrack.pages.Dashboard;
+import com.vytrack.pages.LoginPage;
 import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.ExtraUtils.All_DP;
+import com.vytrack.utilities.ExtraUtils.HeaderMap;
+import com.vytrack.utilities.ExtraUtils.LoginBy;
 import com.vytrack.utilities.ExtraUtils.Sleep;
 import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
@@ -12,21 +17,22 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+
+import static com.vytrack.utilities.ExtraUtils.Sleep.Zzz;
 
 public class US5_Tatiana extends TestBase {
 
-    @Test
-    public void test_vehicle_model_as_sales_manager() {
-        VytrackUtils.loginAsSalesManager();
+    @Test(dataProvider = "SalesManagerLogin", dataProviderClass = All_DP.class)
+    public void test_vehicle_model_as_sales_manager(String salesManager) {
+        LoginBy.loginPg(salesManager);
 
-        Sleep.Zzz(2);
-        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-        fleetBtn.click();
+        Zzz(3);
+        dashboard.moduleFleet.click();
+        dashboard.vehiclesModelBtn.click();
 
-        WebElement vehiclesModelBtn = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
-        vehiclesModelBtn.click();
-        Sleep.Zzz(2);
+        Zzz(3);
         List<WebElement> vehiclesModelTable = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']/tr/th/a"));
 
         List<String> actualVehiclesModelText = new ArrayList<>();
@@ -57,14 +63,14 @@ public class US5_Tatiana extends TestBase {
     @Test
     public void test_vehicle_model_as_store_manager() {
         VytrackUtils.loginAsStoreManger();
-        Sleep.Zzz(2);
+        Zzz(2);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
         fleetBtn.click();
 
         WebElement vehiclesModelBtn = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
         vehiclesModelBtn.click();
 
-        Sleep.Zzz(2);
+        Zzz(2);
         List<WebElement> vehiclesModelTable = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']/tr/th/a"));
 
         List<String> actualVehiclesModelText = new ArrayList<>();
@@ -95,10 +101,10 @@ public class US5_Tatiana extends TestBase {
     @Test
     public void test_vehicle_model_as_driver() {
         VytrackUtils.loginAsDriver();
-        Sleep.Zzz(2);
+        Zzz(2);
         WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
         fleetBtn.click();
-        Sleep.Zzz(2);
+        Zzz(2);
         WebElement vehiclesModelBtn = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
         vehiclesModelBtn.click();
 
