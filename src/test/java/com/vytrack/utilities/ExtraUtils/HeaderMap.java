@@ -29,13 +29,13 @@ public class HeaderMap {
                 user.equals(ConfigurationReader.getProperty("driver_username2"))) {
 
 
-            for (WebElement headLabel : dashboard.mainManuListShort) {
+            for (WebElement headLabel : dashboard.mainMenuListShort) {
                 if (headLabel.getText().contains(head)) {
                     actions.click(headLabel).perform();
                 }
                     }
                 } else {
-            for (WebElement headLabel2 : dashboard.mainManuListLarge) {
+            for (WebElement headLabel2 : dashboard.mainMenuListLarge) {
                 if (headLabel2.getText().contains(head)) {
                     actions.click(headLabel2).perform();
 
