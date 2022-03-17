@@ -1,4 +1,5 @@
 package com.vytrack.tests;
+import com.vytrack.utilities.ExtraUtils.Sleep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,8 +31,9 @@ import java.util.concurrent.TimeUnit;
         @Test
         public void editOptionsTab() throws InterruptedException {
             driver.findElement(By.xpath("//span[@class='title title-level-1']")).click();
+            Sleep.Zzz(3);
             driver.findElement(By.linkText("Vehicles")).click();
-
+            Sleep.Zzz(3);
             WebElement dotOption = driver.findElement(By.xpath("//td[@class='action-cell grid-cell grid-body-cell']"));
             dotOption.click();
 

@@ -150,10 +150,21 @@ public class US14_Mumin_substituted extends TestBase {
 
 
         checkbox1.isSelected();
+        Sleep.Zzz(3);
+        checkbox2.click();
+        Sleep.Zzz(3);
         checkbox2.isSelected();
+
+        Sleep.Zzz(3);
         checkbox3.isSelected();
+        Sleep.Zzz(3);
         checkbox4.isSelected();
+        Sleep.Zzz(3);
         checkbox5.isSelected();
+
+        checkbox5.click();
+        Sleep.Zzz(3);
+            checkbox1.click();
 
 
         checkbox1.click();
@@ -164,6 +175,18 @@ public class US14_Mumin_substituted extends TestBase {
     }
 }
 
+
+//        try {
+//
+//            System.out.println("checkbox1.isSelected() = " + checkbox1.isSelected());
+//            Driver.getDriver().navigate().refresh();
+//
+//
+//        } catch (StaleElementReferenceException e) {
+//
+//            e.printStackTrace();
+//        }
+//
 
 
 
