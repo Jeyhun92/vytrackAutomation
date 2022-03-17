@@ -1,6 +1,7 @@
 package com.vytrack.pages;
 
 import com.vytrack.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,25 @@ public class Dashboard {
     @FindBy(xpath = "//li[@class='dropdown-menu-single-item first']//span[contains(text(),'Vehicles')]")
     public WebElement moduleFleetVehicle;
 
+ VyTrack_Jeyhun
+    @FindBy(linkText = "Vehicle Odometer")
+    public WebElement odometerModule;
+
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
+    public WebElement fleetBtn;
+
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[1]")
+    public WebElement fleetBtnAsDriver;
+
+    @FindBy(xpath = "(//div[@class='message'])[2]")
+    public WebElement message;
+
+    @FindBy(xpath = "//input[@type='number']")
+    public  WebElement pageNumber;
+
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle ']")
+    public  WebElement defaultPageNum ;
+
     @FindBy(xpath = "//span[.='Vehicles Model']")
     public WebElement vehiclesModelBtn;
 
@@ -36,6 +56,7 @@ public class Dashboard {
             @FindBy(linkText = "Vehicles Model")
     })
     public List<WebElement> fleetModulesList;
+
 
 
 
