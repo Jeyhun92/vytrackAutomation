@@ -8,6 +8,7 @@ import com.vytrack.utilities.ExtraUtils.All_DP;
 import com.vytrack.utilities.ExtraUtils.HeaderMap;
 import com.vytrack.utilities.ExtraUtils.Sleep;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -88,34 +89,35 @@ public class US14_Mumin_substituted extends TestBase {
     }
 
     @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
-    public void store_manager_shouldSeeCheckBoxes(String salesManagerUsername){
+    /*public void store_manager_shouldSeeCheckBoxes(String salesManagerUsername) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 2);
         //login to the page as a Store Manager
-       loginPg(salesManagerUsername);
+        loginPg(salesManagerUsername);
         wait.until(ExpectedConditions.titleIs("Dashboard"));
 
         //goto "Marketing" ,then go to "Campaigns"
-        goToPage("Marketing","Campaigns");
+        goToPage("Marketing", "Campaigns");
 
         // locating Grid Settings and click it
         wait.until(ExpectedConditions.titleIs("All - Campaigns - Marketing"));
         Driver.getDriver().findElement(By.xpath("//a[@title='Grid Settings']")).click();
 
         // locating all checkBoxes
-        List<WebElement> allCheckBoxes= Driver.getDriver().findElements(By.xpath("//input[contains (@id,'column-c')]"));
+        List<WebElement> allCheckBoxes = Driver.getDriver().findElements(By.xpath("//input[contains (@id,'column-c')]"));
         //Assert if the checkBoxes are selected
-        allCheckBoxes.forEach(p-> Assert.assertTrue(p.isSelected()));
+        allCheckBoxes.forEach(p -> Assert.assertTrue(p.isSelected()));
 
 
         //Uncheck all checkBoxes and verify all is unselected
-        for (int i = 0; i < allCheckBoxes.size()-1; i++) {
+        for (int i = 0; i < allCheckBoxes.size() - 1; i++) {
 
             allCheckBoxes.get(i).click();
             Assert.assertTrue(!(allCheckBoxes.get(i).isSelected()));
         }
-    }
-   /* public void TC2_checkboxVerification(String storeM) {
-        loginBy(storeM);
+    }*/
+
+    public void TC2_checkboxVerification(String user) {
+        loginBy(user);
 
         Zzz(3);
 
@@ -125,21 +127,27 @@ public class US14_Mumin_substituted extends TestBase {
         List<WebElement> checkbox = Driver.getDriver().findElements(By.xpath("//label/input[@type='checkbox']"));
         System.out.println("checkbox = " + checkbox.size());
 
-        Iterator<WebElement> it = checkbox.iterator();
+        Zzz(3);
+        WebElement checkbox3 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-2"));
+        checkbox3.click();
+        Zzz(3);
 
-        while (it.hasNext()){
-            Zzz(3);
-            Assert.assertTrue(it.next().isSelected());
-        }*/
 
+        WebElement checkbox5 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-4"));
+        checkbox5.click();
+
+        List<WebElement> listSelected = Driver.getDriver().findElements(By.xpath("//input[@checked='checked']"));
+
+        System.out.println("Size of checked "+listSelected.size());
+        System.out.println("Size of non-checked "+(checkbox.size()-listSelected.size()));
 
 
 
        /* WebElement checkbox1 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-0"));
         WebElement checkbox2 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-1"));
-        WebElement checkbox3 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-2"));
+
         WebElement checkbox4 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-3"));
-        WebElement checkbox5 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-4"));
+
 
         checkbox1.isSelected();
         checkbox2.isSelected();
@@ -147,20 +155,15 @@ public class US14_Mumin_substituted extends TestBase {
         checkbox4.isSelected();
         checkbox5.isSelected();
 
-        try {
 
-            checkbox1.click();
-            System.out.println("checkbox1.isSelected() = " + checkbox1.isSelected());
-            Driver.getDriver().navigate().refresh();
+        checkbox1.click();
+        System.out.println("checkbox1.isSelected() = " + checkbox1.isSelected());
+        Driver.getDriver().navigate().refresh();*/
 
-
-        } catch (StaleElementReferenceException e) {
-
-            e.printStackTrace();
-        }
-*/
 
     }
+}
+
 
 
 
