@@ -45,7 +45,7 @@ public class Dashboard {
             @FindBy(linkText = "Activities"),
             @FindBy(linkText = "System")})
 
-    public List<WebElement> mainManuListShort;
+    public List<WebElement> mainMenuListShort;
 
 
     @FindAll({
@@ -59,6 +59,6 @@ public class Dashboard {
             @FindBy(linkText = "System")
 
     })
-    public List<WebElement> mainManuListLarge;
+    public List<WebElement> mainMenuListLarge;
 
 }

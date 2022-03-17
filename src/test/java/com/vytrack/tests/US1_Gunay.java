@@ -43,7 +43,7 @@ public class US1_Gunay extends TestBase {
 
             Dashboard dashboard=new Dashboard();
 
-            List<WebElement> moduleElements =  dashboard.mainManuListLarge;
+            List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -71,7 +71,7 @@ public class US1_Gunay extends TestBase {
 
         Dashboard dashboard=new Dashboard();
 
-        List<WebElement> moduleElements =  dashboard.mainManuListLarge;
+        List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -99,7 +99,7 @@ public class US1_Gunay extends TestBase {
 
             Dashboard dashboard=new Dashboard();
 
-            List<WebElement> moduleElements =  dashboard.mainManuListLarge;
+            List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -127,7 +127,7 @@ public class US1_Gunay extends TestBase {
 
         Dashboard dashboard=new Dashboard();
 
-        List<WebElement> moduleElements =  dashboard.mainManuListLarge;
+        List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -153,7 +153,7 @@ public class US1_Gunay extends TestBase {
 
         Dashboard dashboard=new Dashboard();
 
-        List<WebElement> allModules =  dashboard.mainManuListShort;
+        List<WebElement> allModules =  dashboard.mainMenuListShort;
 
             for (WebElement each : allModules) {
                 actual_result.add(each.getText());
@@ -179,7 +179,7 @@ public class US1_Gunay extends TestBase {
 
         Dashboard dashboard=new Dashboard();
 
-        List<WebElement> allModules =  dashboard.mainManuListShort;
+        List<WebElement> allModules =  dashboard.mainMenuListShort;
 
             for (WebElement each : allModules) {
                 actual_result.add(each.getText());
