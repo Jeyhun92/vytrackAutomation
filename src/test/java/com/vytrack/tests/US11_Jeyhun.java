@@ -1,5 +1,6 @@
 package com.vytrack.tests;
 
+import com.vytrack.pages.Dashboard;
 import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.ExtraUtils.All_DP;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static com.vytrack.utilities.ExtraUtils.LoginBy.loginBy;
+import static com.vytrack.utilities.ExtraUtils.LoginBy.loginPg;
 
 public class US11_Jeyhun extends TestBase {
 
@@ -16,64 +18,43 @@ public class US11_Jeyhun extends TestBase {
     @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
     public void verify_manager_see_expected_text(String storeManagerLogin)  {
 
-        loginBy(storeManagerLogin);
+      loginPg(storeManagerLogin);
+      Sleep.Zzz(3);
+     dashboard.fleetBtn.click();
 
         Sleep.Zzz(3);
-     WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-      fleetBtn.click();
-
+        dashboard.odometerModule.click();
         Sleep.Zzz(3);
-        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
-        odometerBtn.click();
-
-        Sleep.Zzz(3);
-        WebElement message=Driver.getDriver().findElement(By.xpath("(//div[@class='message'])[2]"));
         String expected_Result= "You do not have permission to perform this action.";
-
-        String actual_Result = message.getText();
+        String actual_Result = dashboard.message.getText();
         Assert.assertEquals(actual_Result,expected_Result);
 
     }
     @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
     public void verify_defaultPageNumber_is1(String truckDriverUserName)  {
-      loginBy(truckDriverUserName);
+      loginPg(truckDriverUserName);
+      Sleep.Zzz(3);
+       dashboard.fleetBtnAsDriver.click();
+       Sleep.Zzz(3);
+       dashboard.odometerModule.click();
 
         Sleep.Zzz(3);
-        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        fleetBtn.click();
-
-        Sleep.Zzz(3);
-        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
-        odometerBtn.click();
-
-        Sleep.Zzz(3);
-
-
-        WebElement pageNumber = Driver.getDriver().findElement(By.xpath("//input[@type='number']"));
-        System.out.println("pageNumber.attribute() = " + pageNumber.getAttribute("value"));
-
-       Assert.assertEquals(pageNumber.getAttribute("value"), "1");
+        Assert.assertEquals(dashboard.pageNumber.getAttribute("value"), "1");
     }
 
     @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
     public void verify_default_view_perPage_is25(String truckDriverUserName) {
 
-        loginBy(truckDriverUserName);
-
+        loginPg(truckDriverUserName);
+       Sleep.Zzz(3);
+        dashboard.fleetBtnAsDriver.click();
         Sleep.Zzz(3);
-        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        fleetBtn.click();
+        dashboard.odometerModule.click();
 
-        Sleep.Zzz(3);
-        WebElement odometerBtn = Driver.getDriver().findElement(By.linkText("Vehicle Odometer"));
-        odometerBtn.click();
 
-        Sleep.Zzz(3);
-        WebElement defaultPageNum = Driver.getDriver().findElement(By.xpath("//button[@class='btn dropdown-toggle ']"));
-
-        System.out.println("defaultPageNum = " + defaultPageNum.getText());
-
-        Assert.assertEquals(defaultPageNum.getText(), "25");
+       Sleep.Zzz(3);
+        System.out.println("defaultPageNum = " + dashboard.defaultPageNum.getText());
+        Assert.assertEquals(dashboard.defaultPageNum.getText(), "25");
 
 
     }
