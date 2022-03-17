@@ -1,9 +1,12 @@
 package com.vytrack.tests;
 
+import com.vytrack.pages.Dashboard;
+import com.vytrack.pages.LoginPage;
 import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.ExtraUtils.All_DP;
+import com.vytrack.utilities.ExtraUtils.LoginBy;
 import com.vytrack.utilities.ExtraUtils.Sleep;
 import com.vytrack.utilities.VytrackUtils;
 import org.openqa.selenium.By;
@@ -25,7 +28,7 @@ public class US1_Gunay extends TestBase {
         @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
         public void verifying_modules_as_store_manger(String storeManagerLogin){
 
-            loginBy(storeManagerLogin);
+            LoginBy.loginPg(storeManagerLogin);
 
             Sleep.Zzz(1);
 
@@ -39,7 +42,9 @@ public class US1_Gunay extends TestBase {
                     "System"));
 
 
-            List<WebElement> moduleElements = Driver.getDriver().findElements(By.xpath("//span[@class='title title-level-1']"));
+            Dashboard dashboard=new Dashboard();
+
+            List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -52,7 +57,7 @@ public class US1_Gunay extends TestBase {
     @Test(dataProvider = "StoreManagerLogin", dataProviderClass = All_DP.class)
         public void verifying_modules_as_store_manger_negative_scenario(String storeManagerLogin){
 
-        loginBy(storeManagerLogin);
+        LoginBy.loginPg(storeManagerLogin);
 
         Sleep.Zzz(1);
 
@@ -65,8 +70,9 @@ public class US1_Gunay extends TestBase {
                     "Reports & Segments",
                     "System"));
 
+        Dashboard dashboard=new Dashboard();
 
-            List<WebElement> moduleElements = Driver.getDriver().findElements(By.xpath("//span[@class='title title-level-1']"));
+        List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -92,8 +98,9 @@ public class US1_Gunay extends TestBase {
                     "Reports & Segments",
                     "System"));
 
+            Dashboard dashboard=new Dashboard();
 
-            List<WebElement> moduleElements = Driver.getDriver().findElements(By.xpath("//span[@class='title title-level-1']"));
+            List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -119,7 +126,9 @@ public class US1_Gunay extends TestBase {
                     "System"));
 
 
-            List<WebElement> moduleElements = Driver.getDriver().findElements(By.xpath("//span[@class='title title-level-1']"));
+        Dashboard dashboard=new Dashboard();
+
+        List<WebElement> moduleElements =  dashboard.mainMenuListLarge;
             List<String> actual_result=new ArrayList<>();
             for (WebElement each : moduleElements) {
                 actual_result.add(each.getText());
@@ -143,7 +152,9 @@ public class US1_Gunay extends TestBase {
 
             List<String> actual_result=new ArrayList<>();
 
-            List<WebElement> allModules= Driver.getDriver().findElements(By.xpath("//span[@class='title title-level-1']"));
+        Dashboard dashboard=new Dashboard();
+
+        List<WebElement> allModules =  dashboard.mainMenuListShort;
 
             for (WebElement each : allModules) {
                 actual_result.add(each.getText());
@@ -167,7 +178,9 @@ public class US1_Gunay extends TestBase {
 
             List<String> actual_result=new ArrayList<>();
 
-            List<WebElement> allModules= Driver.getDriver().findElements(By.xpath("//span[@class='title title-level-1']"));
+        Dashboard dashboard=new Dashboard();
+
+        List<WebElement> allModules =  dashboard.mainMenuListShort;
 
             for (WebElement each : allModules) {
                 actual_result.add(each.getText());

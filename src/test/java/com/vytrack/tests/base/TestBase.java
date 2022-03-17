@@ -1,10 +1,7 @@
 package com.vytrack.tests.base;
 
-import com.vytrack.pages.CalendarEvent;
+import com.vytrack.pages.*;
 
-import com.vytrack.pages.Dashboard;
-import com.vytrack.pages.EventCreate;
-import com.vytrack.pages.VehiclePage;
 import com.vytrack.utilities.Driver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,6 +13,7 @@ public abstract class TestBase {
     protected EventCreate create;
     protected Dashboard dashboard;
     protected VehiclePage vehiclePage;
+    protected Accounts accounts;
     @BeforeMethod
     public void setUp() {
 
@@ -23,7 +21,7 @@ public abstract class TestBase {
         create = new EventCreate();
         dashboard = new Dashboard();
         vehiclePage = new VehiclePage();
-
+        accounts = new Accounts();
 
     }
 

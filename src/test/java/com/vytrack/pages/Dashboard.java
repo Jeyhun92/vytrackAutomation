@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class Dashboard {
     @FindBy(xpath = "//li[@class='dropdown-menu-single-item first']//span[contains(text(),'Vehicles')]")
     public WebElement moduleFleetVehicle;
 
+ VyTrack_Jeyhun
     @FindBy(linkText = "Vehicle Odometer")
     public WebElement odometerModule;
 
@@ -41,13 +43,30 @@ public class Dashboard {
     @FindBy(xpath = "//button[@class='btn dropdown-toggle ']")
     public  WebElement defaultPageNum ;
 
+    @FindBy(xpath = "//span[.='Vehicles Model']")
+    public WebElement vehiclesModelBtn;
+
+    @FindAll({
+            @FindBy(linkText = "Vehicles"),
+            @FindBy(linkText = "Vehicle Odometers"),
+            @FindBy(linkText = "Vehicle Costs"),
+            @FindBy(linkText = "Vehicle Contracts"),
+            @FindBy(linkText = "Vehicles Fuel Logs"),
+            @FindBy(linkText = "Vehicle Services"),
+            @FindBy(linkText = "Vehicles Model")
+    })
+    public List<WebElement> fleetModulesList;
+
+
+
+
     @FindAll({
             @FindBy(linkText = "Fleet"),
             @FindBy(linkText = "Customers"),
             @FindBy(linkText = "Activities"),
             @FindBy(linkText = "System")})
 
-    public List<WebElement> mainManuListShort;
+    public List<WebElement> mainMenuListShort;
 
 
     @FindAll({
@@ -61,6 +80,6 @@ public class Dashboard {
             @FindBy(linkText = "System")
 
     })
-    public List<WebElement> mainManuListLarge;
+    public List<WebElement> mainMenuListLarge;
 
 }

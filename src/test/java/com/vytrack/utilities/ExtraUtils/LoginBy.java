@@ -26,7 +26,7 @@ public class LoginBy {
         Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
         // pass username
         // Driver.getDriver().findElement(By.cssSelector("#prependedInput"));
-        loginpage.loginInput.sendKeys(username);
+        loginpage.loginInput.sendKeys(username);  //user44
         //pass password
         loginpage.passwordInput.sendKeys(ConfigurationReader.getProperty("driver_password"));
         //click login button
