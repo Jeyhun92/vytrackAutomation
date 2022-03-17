@@ -97,23 +97,32 @@ public class US14_Mumin_substituted extends TestBase {
         WebElement checkbox5 = Driver.getDriver().findElement(By.id("ui-multiselect-0-0-option-4"));
 
         checkbox1.isSelected();
+        Sleep.Zzz(3);
+        checkbox2.click();
+        Sleep.Zzz(3);
         checkbox2.isSelected();
+
+        Sleep.Zzz(3);
         checkbox3.isSelected();
+        Sleep.Zzz(3);
         checkbox4.isSelected();
+        Sleep.Zzz(3);
         checkbox5.isSelected();
-
-        try {
-
+        checkbox5.click();
+        Sleep.Zzz(3);
             checkbox1.click();
-            System.out.println("checkbox1.isSelected() = " + checkbox1.isSelected());
-            Driver.getDriver().navigate().refresh();
 
-
-        } catch (StaleElementReferenceException e) {
-
-            e.printStackTrace();
-        }
-
+//        try {
+//
+//            System.out.println("checkbox1.isSelected() = " + checkbox1.isSelected());
+//            Driver.getDriver().navigate().refresh();
+//
+//
+//        } catch (StaleElementReferenceException e) {
+//
+//            e.printStackTrace();
+//        }
+//
 
     }
 
