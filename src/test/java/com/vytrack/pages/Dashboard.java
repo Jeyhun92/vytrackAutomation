@@ -15,6 +15,7 @@ public class Dashboard {
     public Dashboard() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
     @FindBy(css =".nav-multilevel.main-menu")
     public WebElement mainManuBar;
 
@@ -24,7 +25,7 @@ public class Dashboard {
     @FindBy(xpath = "//li[@class='dropdown-menu-single-item first']//span[contains(text(),'Vehicles')]")
     public WebElement moduleFleetVehicle;
 
- VyTrack_Jeyhun
+
     @FindBy(linkText = "Vehicle Odometer")
     public WebElement odometerModule;
 
@@ -45,6 +46,9 @@ public class Dashboard {
 
     @FindBy(xpath = "//span[.='Vehicles Model']")
     public WebElement vehiclesModelBtn;
+
+    @FindBy(linkText = "Activities")
+    public WebElement activitiesHover;
 
     @FindAll({
             @FindBy(linkText = "Vehicles"),

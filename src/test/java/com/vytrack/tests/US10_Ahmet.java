@@ -36,11 +36,12 @@ public class US10_Ahmet extends TestBase {
 
 
 
-    @Test(dataProvider = "DriverLogin", dataProviderClass = All_DP.class)
+    @Test(dataProvider = "LoginAll", dataProviderClass = All_DP.class)
     public void TC1_Verifying_Description_Msg(String user) {
 
         loginPg(user); //user44
 
+      //  bePatient(dashboard.activitiesHover,15);
         Zzz(3);
         goToPage(user,"Activities", "Calendar Events");
 
