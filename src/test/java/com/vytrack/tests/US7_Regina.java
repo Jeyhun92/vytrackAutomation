@@ -1,10 +1,13 @@
 package com.vytrack.tests;
 
+import com.vytrack.pages.VehiclePage;
 import com.vytrack.tests.base.TestBase;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.ExtraUtils.All_DP;
+import com.vytrack.utilities.ExtraUtils.HigthLigth;
 import com.vytrack.utilities.ExtraUtils.Sleep;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -27,11 +30,11 @@ public class US7_Regina extends TestBase{
         //Verify that User launched to the Vehicle page, all the checkboxes should be unchecked
         loginBy(user);
         Sleep.Zzz(3);
+        HigthLigth.highlight(dashboard.moduleFleet,"blue");
         dashboard.moduleFleet.click();
-        Sleep.Zzz(3);
+        HigthLigth.highlight(dashboard.moduleFleetVehicle,"purple");
         dashboard.moduleFleetVehicle.click();
-        //vehiclePage.checkboxAll.click();
-        Assert.assertFalse(vehiclePage.checkboxAll.isSelected(),"Checkbox is selected");
+        Assert.assertFalse(vehiclePage.checkboxAll.isSelected(),"All Checkbox is not empty");
 
         //AC2_Verify that User check the first checkbox to check all the cars
         vehiclePage.checkboxAll.click();
@@ -39,13 +42,13 @@ public class US7_Regina extends TestBase{
         vehiclePage.checkboxAll.click();
 
         //AC3Verify that Users can select any car
-        List<WebElement> randomCheckbox = Driver.getDriver().findElements(By.xpath("//input[@tabindex='-1']"));
         //Select $ UnSelect EachCheckBox
-        for (WebElement eachCheckbox : randomCheckbox) {
+        for (WebElement eachCheckbox : vehiclePage.randomCheckBox) {
             if (!eachCheckbox.isSelected()) {
                 eachCheckbox.click();
+                Assert.assertTrue(eachCheckbox.isSelected());
             }
-            for (WebElement eachUncheckBox : randomCheckbox) {
+            for (WebElement eachUncheckBox : vehiclePage.randomCheckBox) {
                 if (eachUncheckBox.isSelected()) {
                     eachUncheckBox.click();
                 }
