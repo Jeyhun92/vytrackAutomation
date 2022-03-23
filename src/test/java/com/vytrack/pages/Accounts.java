@@ -11,10 +11,14 @@ public class Accounts {
     public Accounts(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(xpath = "select[@data-action='add-filter-select']")
+    @FindBy(xpath = "//select[@data-action='add-filter-select']")
     public WebElement managerSelectFilter;
 
-    @FindBy(xpath = "(//div[@class='btn filter-criteria-selector oro-drop-opener oro-dropdown-toggle filter-default-value'])")
+    @FindBy(xpath = "//div[@class='filter-item oro-drop']")
     public List<WebElement> managerFilterBarButtons;
+
+    @FindBy(css = "a[title='Filters']")
+    public WebElement filterButton;
+
 
 }
