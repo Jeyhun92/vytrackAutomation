@@ -5,6 +5,7 @@ import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.ExtraUtils.All_DP;
 import com.vytrack.utilities.ExtraUtils.Sleep;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -20,13 +21,15 @@ public class US7_Regina extends TestBase{
     //AC #1: once the user launched to the Vehicle page, all the checkboxes should be unchecked
     //AC #2: user check the first checkbox to check all the cars
     //AC #3: users can select any car
-
+    JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
     @Test(dataProvider = "LoginAll", dataProviderClass = All_DP.class)
     public void TC1_verify_that_driver_select_any_car(String user) {
 
         //Verify that User launched to the Vehicle page, all the checkboxes should be unchecked
         loginBy(user);
         Sleep.Zzz(3);
+        WebElement hl = dashboard.moduleFleet;
+        js.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", hl);
         dashboard.moduleFleet.click();
         Sleep.Zzz(3);
         dashboard.moduleFleetVehicle.click();
